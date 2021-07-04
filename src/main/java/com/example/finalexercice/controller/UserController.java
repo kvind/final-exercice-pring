@@ -33,6 +33,7 @@ public class UserController {
     public AppUser createUser(@Valid @RequestBody AppUser user) {
         String hashPW = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(hashPW);
+
         return appUserRepository.save(user);
     }
 
